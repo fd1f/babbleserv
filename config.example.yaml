@@ -1,0 +1,30 @@
+serverName: "localhost"
+signingKeys:
+    key:
+        path: "ed25519-localhost.key" # the federation key you generated
+        expiredTimestamp: 0
+signingKeyRefreshInterval: 0s
+databases:
+    rooms:
+        clusterFilePath: "" # defaults to the local foundationdb server
+        transactionTimeout: 500
+        transactionRetryLimit: 20
+rooms:
+    defaultVersion: "6"
+notifier:
+    redisAddr: "" # defaults to local redis
+routes:
+    servers:
+        - listenAddr: "localhost:8008"
+          serviceGroups:
+          - client
+          - federation
+          - babbleserv
+workers: {}
+federation:
+    maxFetchMissingEvents: 0
+wellKnown:
+    server: ""
+    client: ""
+secretSwitches:
+    enableFederatedSendRoomCreate: false
