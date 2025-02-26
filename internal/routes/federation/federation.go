@@ -71,7 +71,10 @@ func (f *FederationRoutes) AddFederationRoutes(rtr chi.Router) {
 }
 
 func (f *FederationRoutes) GetVersion(w http.ResponseWriter, r *http.Request) {
-	util.ResponseJSON(w, r, http.StatusOK, map[string]string{
-		"name": "Babbleserv",
+	util.ResponseJSON(w, r, http.StatusOK, map[string]map[string]string{
+		"server": {
+			"name": "Babbleserv",
+			"version": "do you think i know?",
+		},
 	})
 }
