@@ -46,12 +46,14 @@ func NewDatabases(
 	if cfg.Accounts.Enabled {
 		dbs.Accounts = accounts.NewAccountsDatabase(cfg, log)
 	}
-	if cfg.Transient.Enabled {
-		dbs.Transient = transient.NewTransientDatabase(cfg, log)
-	}
-	if cfg.Media.Enabled {
-		dbs.Media = media.NewMediaDatabase(cfg, log)
-	}
+	// doesn't exist'
+	// if cfg.Transient.Enabled {
+	// 	dbs.Transient = transient.NewTransientDatabase(cfg, log)
+	// }
+	// technically exists but is basically a dummy module
+	// if cfg.Media.Enabled {
+	// 	dbs.Media = media.NewMediaDatabase(cfg, log)
+	// }
 
 	return &dbs
 }
@@ -69,10 +71,10 @@ func (d *Databases) Stop() {
 	if d.Accounts != nil {
 		d.Accounts.Stop()
 	}
-	if d.Transient != nil {
-		d.Transient.Stop()
-	}
-	if d.Media != nil {
-		d.Media.Stop()
-	}
+	// if d.Transient != nil {
+	// 	d.Transient.Stop()
+	// }
+	// if d.Media != nil {
+	// 	d.Media.Stop()
+	// }
 }

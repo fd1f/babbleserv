@@ -101,7 +101,8 @@ func (c *ClientRoutes) AddClientRoutes(rtr chi.Router) {
 		rtr.MethodFunc(http.MethodGet, "/v3/login", c.GetLogin)
 		rtr.MethodFunc(http.MethodPost, "/v3/login", c.Login)
 
-		rtr.MethodFunc(http.MethodPost, "/v3/keys/upload", middleware.RequireUserAuth(c.UploadKeys))
+		// the code for this doesn't exist!
+		// rtr.MethodFunc(http.MethodPost, "/v3/keys/upload", middleware.RequireUserAuth(c.UploadKeys))
 	}
 
 	if c.config.Transient.Enabled {
